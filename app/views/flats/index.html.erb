@@ -1,0 +1,32 @@
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <%= link_to "Simple Airbnb", flats_path, class:"navbar-brand" %>
+  </div>
+</nav>
+
+<h1 class="p-2">All our flats (<%= @flats.count %>)</h1>
+<div class="cards">
+    <% @flats.each do |flat| %>
+      <div class="card shadow m-2 p-0 container">
+        <div class="bg-body-tertiary p-2">
+          <h3><%= flat.name %></h3>
+          <h6><%= flat.address %></h6>
+          <div class="d-flex align-items-end">
+            <p class="me-2">
+              <i class="fa-solid fa-user-group"></i>
+              <%= flat.number_of_guests %>
+            </p>
+            <p class="ms-2">
+              <i class="fa-solid fa-euro-sign"></i>
+              <%= flat.price_per_night %>
+            </p>
+          </div>
+        </div>
+        <div class="bg-white d-flex justify-content-evenly p-2">
+          <p><%= link_to "More info", flat_path(flat) %></p>
+          <p>Edit</p>
+          <p><%= link_to "Remove", flat_path(flat), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+        </div>
+      </div>
+    <% end %>
+</div>

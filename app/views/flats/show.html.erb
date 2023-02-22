@@ -1,0 +1,28 @@
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <%= link_to "Simple Airbnb", flats_path, class:"navbar-brand" %>
+  </div>
+</nav>
+<div class="container">
+  <div class="card p-2 m-2 bg-body-tertiary">
+    <h1><%= @flat.name %></h1>
+    <p><%= @flat.address %></p>
+  </div>
+    <div class="card p-2 m-2 bg-body-tertiary">
+    <h2>A bit more about this flat...</h2>
+    <p><%= @flat.description %></p>
+  </div>
+  <div class="card p-2 m-2 bg-body-tertiary">
+   <h3>Details</h3>
+    <div class="d-flex align-items-end">
+      <p class="me-2">
+        <i class="fa-solid fa-user-group"></i>
+        <%= @flat.number_of_guests %>
+      </p>
+      <p class="ms-2">
+        <i class="fa-solid fa-euro-sign"></i>
+        <%= @flat.price_per_night %>
+      </p>
+    </div>
+  </div>
+</div>
